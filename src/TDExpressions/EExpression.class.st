@@ -10,6 +10,16 @@ EExpression >> accept: aVisitor [
 ]
 
 { #category : #'public access' }
+EExpression >> evaluateWith: anEnvironment [
+	| visitor |
+	
+	visitor := EEvaluatorVisitor new.
+	visitor bindings: anEnvironment.
+	
+	^ self accept: visitor
+]
+
+{ #category : #'public access' }
 EExpression >> negated [
 	^ENegation new expression: self
 ]

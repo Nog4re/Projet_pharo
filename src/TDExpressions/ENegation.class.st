@@ -13,10 +13,14 @@ ENegation class >> expression: anExpression [
 	^ self new expression: anExpression.
 ]
 
-{ #category : #'public access' }
-ENegation >> evaluateWith: anObject [
+{ #category : #visiting }
+ENegation >> accept: aVisitor [
+	^ aVisitor visitNegation: self
+]
 
-	^ -1 * (expression evaluateWith: anObject)
+{ #category : #accessing }
+ENegation >> expression [
+	^expression 
 ]
 
 { #category : #accessing }

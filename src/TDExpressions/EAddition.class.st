@@ -18,11 +18,9 @@ EAddition class >> left: anEExpression right: anEExpression2 [
 	^ self new left: anEExpression; right: anEExpression2
 ]
 
-{ #category : #'public access' }
-EAddition >> evaluateWith: anObject [
-
-	^ (left evaluateWith: anObject)
-	  + (right evaluateWith: anObject)
+{ #category : #visiting }
+EAddition >> accept: aVisitor [
+	^ aVisitor visitAddition: self
 ]
 
 { #category : #'as yet unclassified' }

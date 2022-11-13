@@ -18,11 +18,9 @@ EMultiplication class >> left: anEExpression right: anEExpression2 [
 	^ self new left: anEExpression; right: anEExpression2
 ]
 
-{ #category : #'public access' }
-EMultiplication >> evaluateWith: anObject [
-
-	^ (left evaluateWith: anObject)
-	  * (right evaluateWith: anObject)
+{ #category : #visiting }
+EMultiplication >> accept: aVisitor [
+	^ aVisitor visitMultiplication: self
 ]
 
 { #category : #'as yet unclassified' }
